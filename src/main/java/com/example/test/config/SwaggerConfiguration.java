@@ -25,9 +25,8 @@ public class SwaggerConfiguration {
     }
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("接口文档")
-                .description("包名网站相关接口的文档")
-                .termsOfServiceUrl("http://localhost:2333/swagger-ui.html")
+                .title("MyDemoForSpringBootLearning")
+                .description("相关接口的文档")
                 .version("1.0")
                 .build();
     }
