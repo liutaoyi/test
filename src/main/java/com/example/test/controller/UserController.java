@@ -52,4 +52,11 @@ public class UserController {
                                 @ApiParam(value = "密码") @RequestParam String password){
         return ResultUtil.success(userService.login(username,password));
     }
+
+    @PostMapping(value = "/queryPage")
+    @ApiOperation(value = "查询所有用户--分页")
+    public Result<Object> queryPage(@ApiParam(value = "页数",defaultValue = "1")@RequestParam Integer page,
+                                    @ApiParam(value = "每页条数",defaultValue = "5")@RequestParam Integer size){
+        return ResultUtil.success(userService.queryAll(page,size));
+    }
 }

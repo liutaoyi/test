@@ -1,6 +1,7 @@
 package com.example.test.service;
 
 import com.example.test.dto.LoginDto;
+import com.example.test.dto.Page;
 import com.example.test.entity.User;
 import com.example.test.entity.UserExample;
 import com.example.test.mapper.UserMapper;
@@ -42,5 +43,11 @@ public class UserServiceImpl implements UserService {
     public LoginDto login(String username, String password) {
         LoginDto loginDto = userMapper.login(username,password);
         return loginDto;
+    }
+
+    @Override
+    public Page queryAll(Integer page, Integer size) {
+        Page<User> pageInfo = new Page<>(size,page,query());
+        return pageInfo;
     }
 }
