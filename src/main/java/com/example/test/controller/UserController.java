@@ -5,11 +5,15 @@ import com.example.test.entity.User;
 import com.example.test.service.UserService;
 import com.example.test.utils.Result;
 import com.example.test.utils.ResultUtil;
+import io.jsonwebtoken.lang.Assert;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * @author: LiuTaoYi
@@ -42,12 +46,13 @@ public class UserController {
 //        return ResultUtil.success(userService.loginForApp());
 //    }
 //
-//    @PostMapping(value = "/login")
-//    @ApiOperation(value = "用户登录")
-//    public Result<Object> login(@ApiParam(value = "用户名") @RequestParam String username,
-//                                @ApiParam(value = "密码") @RequestParam String password){
-//        return ResultUtil.success(userService.login(username,password));
-//    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/login")
+    @ApiOperation(value = "用户登录")
+    public Result<Object> login(@ApiParam(value = "用户名") @RequestParam String username,
+                                @ApiParam(value = "密码") @RequestParam String password){
+        return ResultUtil.success(userService.login(username,password));
+    }
 
     @PostMapping(value = "/queryPage")
     @ApiOperation(value = "查询所有用户--分页")
@@ -63,5 +68,17 @@ public class UserController {
         }else {
             return ResultUtil.error("失败");
         }
+    }
+
+    @DeleteMapping
+    public Result delete(){
+        userService.delete();
+        return ResultUtil.success();
+    }
+
+    @GetMapping(value = "abc")
+    public Result getData(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam Date time){
+
+        return ResultUtil.success(userService.getByCondition(time));
     }
 }

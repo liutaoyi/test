@@ -1,5 +1,6 @@
 package com.example.test.service;
 
+import com.example.test.dto.LoginDto;
 import com.example.test.dto.MyDTO;
 import com.example.test.dto.Page;
 import com.example.test.entity.User;
@@ -46,11 +47,10 @@ public class UserServiceImpl implements UserService {
 //        return loginDto;
 //    }
 //
-//    @Override
-//    public LoginDto login(String username, String password) {
-//        LoginDto loginDto = userMapper.login(username,password);
-//        return loginDto;
-//    }
+    @Override
+    public User login(String username, String password) {
+        return userMapper.login(username,password);
+    }
 
     @Override
     public Page queryAll(Integer page, Integer size) {
@@ -70,5 +70,19 @@ public class UserServiceImpl implements UserService {
         user.setPassword(myDTO.getPassword());
         user.setBirth(myDTO.getTime());
         return userMapper.insertSelective(user);
+    }
+
+    @Override
+    public void delete() {
+        UserExample example = new UserExample();
+        example.createCriteria().andPasswordEqualTo("123456");
+        userMapper.deleteByExample(example);
+    }
+
+    @Override
+    public List getByCondition(Date time) {
+        UserExample example = new UserExample();
+        example.createCriteria().andBirthGreaterThan(time);
+        return userMapper.selectByExample(example);
     }
 }

@@ -2,11 +2,11 @@ package com.example.test.mapper;
 
 import com.example.test.entity.User;
 import com.example.test.entity.UserExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Mapper
 @Component
@@ -22,6 +22,8 @@ public interface UserMapper {
     int insertSelective(User record);
 
     List<User> selectByExample(UserExample example);
+
+    User login(String username,String password);
 
     User selectByPrimaryKey(Integer id);
 
