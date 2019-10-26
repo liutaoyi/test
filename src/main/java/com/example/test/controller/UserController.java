@@ -5,7 +5,6 @@ import com.example.test.entity.User;
 import com.example.test.service.UserService;
 import com.example.test.utils.Result;
 import com.example.test.utils.ResultUtil;
-import io.jsonwebtoken.lang.Assert;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
