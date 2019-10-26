@@ -26,55 +26,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping(value = "/insert")
-    @ApiOperation(value = "添加用户")
-    public Result<Object> insert(@RequestParam User user){
-        userService.insert(user);
-        return ResultUtil.success();
-    }
-
-    @PostMapping(value = "/query")
-    @ApiOperation(value = "查询所有用户")
-    public Result<Object> query(){
-       return ResultUtil.success(userService.query());
-    }
-
-//    @PostMapping(value = "/getLoginInitial")
-//    @ApiOperation(value = "获取相应的信息")
-//    public Result<Object> getResponse(){
-//        return ResultUtil.success(userService.loginForApp());
-//    }
-//
-    @CrossOrigin(origins = "*")
-    @PostMapping(value = "/login")
-    @ApiOperation(value = "用户登录")
-    public Result<Object> login(@ApiParam(value = "用户名") @RequestParam String username,
-                                @ApiParam(value = "密码") @RequestParam String password){
-        return ResultUtil.success(userService.login(username,password));
-    }
-
-    @PostMapping(value = "/queryPage")
-    @ApiOperation(value = "查询所有用户--分页")
-    public Result<Object> queryPage(@ApiParam(value = "页数",defaultValue = "1")@RequestParam Integer page,
-                                    @ApiParam(value = "每页条数",defaultValue = "5")@RequestParam Integer size){
-        return ResultUtil.success(userService.queryAll(page,size));
-    }
-
-    @PostMapping(value = "test")
-    public Result test(@RequestBody MyDTO myDTO){
-        if (userService.test(myDTO) == 1){
-            return ResultUtil.success();
-        }else {
-            return ResultUtil.error("失败");
-        }
-    }
-
-    @DeleteMapping
-    public Result delete(){
-        userService.delete();
-        return ResultUtil.success();
-    }
-
     @GetMapping(value = "abc")
     public Result getData(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam Date time){
 
