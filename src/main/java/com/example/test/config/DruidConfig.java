@@ -21,7 +21,7 @@ public class DruidConfig {
         //Druid 数据源配置
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/hello?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/hello?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
         //初始连接数(默认值0)
