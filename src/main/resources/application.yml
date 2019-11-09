@@ -31,3 +31,17 @@ mybatis:
     map-underscore-to-camel-case: true
     # 自增主键
     use-generated-keys: true
+
+
+
+logging:
+  level:
+    root: warn
+    com.example.test.mapper: trace
+  pattern:
+    console: '%p%m%n'
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
