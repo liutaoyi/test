@@ -1,12 +1,10 @@
 package com.example.test.service;
 
-import com.example.test.entity.UserExample;
-import com.example.test.mapper.UserMapper;
+import com.example.test.entity.Xiaohu;
+import com.example.test.entity.XiaohuExample;
+import com.example.test.mapper.XiaohuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author: LiuTaoYi
@@ -17,12 +15,17 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserMapper userMapper;
+    XiaohuMapper mapper;
 
     @Override
-    public List getByCondition(Date time) {
-        UserExample example = new UserExample();
-        example.createCriteria().andBirthGreaterThan(time);
-        return userMapper.selectByExample(example);
+    public void delete() {
+        XiaohuExample example = new XiaohuExample();
+        example.createCriteria().andFlagEqualTo(true);
+        mapper.deleteByExample(example);
+    }
+
+    @Override
+    public void add(Xiaohu xiaohu) {
+        mapper.insertSelective(xiaohu);
     }
 }

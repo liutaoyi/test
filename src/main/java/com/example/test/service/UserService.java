@@ -1,9 +1,10 @@
 package com.example.test.service;
 
-import java.util.Date;
-import java.util.List;
+import com.example.test.entity.Xiaohu;
 
 public interface UserService {
 
-    List getByCondition(Date time);
+    void delete();
+
+    void add(Xiaohu xiaohu);
 }

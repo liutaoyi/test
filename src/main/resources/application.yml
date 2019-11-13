@@ -41,7 +41,7 @@ logging:
   pattern:
     console: '%p%m%n'
 
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: auto
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      id-type: auto

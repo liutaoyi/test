@@ -37,7 +37,7 @@
         <!--<table tableName="tb_user" domainObjectName="User" enableCountByExample="true"-->
                <!--enableUpdateByExample="true" enableDeleteByExample="true"-->
                <!--enableSelectByExample="true" selectByExampleQueryId="true" />-->
-        <table tableName="tb_location" domainObjectName="Location" enableCountByExample="true"
+        <table tableName="tb_xiaohu" domainObjectName="Xiaohu" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true"/>
     </context>
