@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.*;
  * @description:
  **/
 @RestController
-@Api(tags = "用户模块")
-@RequestMapping(value = "/user")
-public class UserController {
+@Api(tags = "测试模块")
+@RequestMapping(value = "/fuck")
+public class TestController {
     @Autowired
     UserService userService;
 
 
-    @PostMapping(value = "test")
+    @PostMapping(value = "add")
     public Result test(@RequestBody Xiaohu test) {
         userService.add(test);
         return ResultUtil.success();
     }
 
-    @DeleteMapping(value = "test")
+    @DeleteMapping(value = "delete")
     public Result delete() {
         userService.delete();
         return ResultUtil.success();
