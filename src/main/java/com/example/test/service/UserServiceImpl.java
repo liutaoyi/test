@@ -6,6 +6,7 @@ import com.example.test.entity.Xiaohu;
 import com.example.test.entity.XiaohuExample;
 import com.example.test.mapper.MlxgMapper;
 import com.example.test.mapper.XiaohuMapper;
+import com.example.test.utils.DateUniversalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,5 +81,15 @@ public class UserServiceImpl implements UserService {
             }
         });
         mlxgs.forEach(mlxg -> System.out.println(mlxg.toString()));
+    }
+
+    @Override
+    public void test2() {
+        XiaohuExample example = new XiaohuExample();
+        Date d1 = DateUniversalUtil.getTodayStart();
+        Date d2 = DateUniversalUtil.getTodayEnd();
+        example.createCriteria().andFinishTimeBetween(d1, d2);
+        List<Xiaohu> xiaohus = xiaohuMapper.selectByExample(example);
+        xiaohus.forEach(xiaohu -> System.out.println(xiaohu.toString()));
     }
 }
