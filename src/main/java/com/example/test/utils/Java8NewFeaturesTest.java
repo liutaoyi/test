@@ -8,6 +8,6 @@ package com.example.test.utils;
 
 public class Java8NewFeaturesTest {
     public static void main(String[] args) {
-        
+
     }
 }
