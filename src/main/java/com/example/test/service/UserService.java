@@ -7,4 +7,6 @@ public interface UserService {
     void test1();
 
     void test2();
+
+    String test3(Integer code);
 }

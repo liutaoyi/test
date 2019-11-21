@@ -3,10 +3,12 @@ package com.example.test.controller;
 import com.example.test.service.UserService;
 import com.example.test.utils.Result;
 import com.example.test.utils.ResultUtil;
+import com.sun.imageio.plugins.common.I18N;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,8 +26,7 @@ public class TestController {
 
 
     @GetMapping(value = "test")
-    public Result test() {
-        userService.test();
-        return ResultUtil.success();
+    public Result test(@RequestParam Integer code) {
+        return ResultUtil.success(userService.test3(code));
     }
 }

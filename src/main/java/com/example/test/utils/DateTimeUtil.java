@@ -7,4 +7,7 @@ package com.example.test.utils;
  **/
 
 public class DateTimeUtil {
+    public static void main(String[] args) {
+        System.out.println("This is a Java8 DateTime Universal Tools");
+    }
 }

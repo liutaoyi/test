@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author: LiuTaoYi
@@ -91,5 +92,20 @@ public class UserServiceImpl implements UserService {
         example.createCriteria().andFinishTimeBetween(d1, d2);
         List<Xiaohu> xiaohus = xiaohuMapper.selectByExample(example);
         xiaohus.forEach(xiaohu -> System.out.println(xiaohu.toString()));
+        xiaohus.forEach(new Consumer<Xiaohu>() {
+            @Override
+            public void accept(Xiaohu xiaohu) {
+                System.out.println(xiaohu);
+            }
+        });
+    }
+
+    @Override
+    public String test3(Integer code) {
+        if (code == 1){
+            return code.toString();
+        }else{
+            return null;
+        }
     }
 }
