@@ -5,6 +5,7 @@ import com.example.test.entity.MlxgExample;
 import com.example.test.entity.Xiaohu;
 import com.example.test.entity.XiaohuExample;
 import com.example.test.mapper.MlxgMapper;
+import com.example.test.mapper.UziMapper;
 import com.example.test.mapper.XiaohuMapper;
 import com.example.test.utils.DateUniversalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     MlxgMapper mlxgMapper;
+
+    @Autowired
+    UziMapper uziMapper;
 
 
     @Override
@@ -107,5 +111,10 @@ public class UserServiceImpl implements UserService {
         }else{
             return null;
         }
+    }
+
+    @Override
+    public void test4() {
+
     }
 }

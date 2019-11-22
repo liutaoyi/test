@@ -9,4 +9,6 @@ public interface UserService {
     void test2();
 
     String test3(Integer code);
+
+    void test4();
 }
