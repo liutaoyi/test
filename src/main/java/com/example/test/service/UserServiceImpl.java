@@ -1,9 +1,6 @@
 package com.example.test.service;
 
-import com.example.test.entity.Mlxg;
-import com.example.test.entity.MlxgExample;
-import com.example.test.entity.Xiaohu;
-import com.example.test.entity.XiaohuExample;
+import com.example.test.entity.*;
 import com.example.test.mapper.MlxgMapper;
 import com.example.test.mapper.UziMapper;
 import com.example.test.mapper.XiaohuMapper;
@@ -115,6 +112,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void test4() {
-
+        Uzi uzi = new Uzi();
+        uzi.setProcess("AB");
+        uziMapper.insertSelective(uzi);
     }
 }
