@@ -93,12 +93,7 @@ public class UserServiceImpl implements UserService {
         example.createCriteria().andFinishTimeBetween(d1, d2);
         List<Xiaohu> xiaohus = xiaohuMapper.selectByExample(example);
         xiaohus.forEach(xiaohu -> System.out.println(xiaohu.toString()));
-        xiaohus.forEach(new Consumer<Xiaohu>() {
-            @Override
-            public void accept(Xiaohu xiaohu) {
-                System.out.println(xiaohu);
-            }
-        });
+        xiaohus.forEach(xiaohu -> System.out.println(xiaohu));
     }
 
     @Override
