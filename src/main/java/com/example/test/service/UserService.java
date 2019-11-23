@@ -1,5 +1,8 @@
 package com.example.test.service;
 
+import java.util.List;
+import java.util.Map;
+
 public interface UserService {
 
     void test();
@@ -11,4 +14,6 @@ public interface UserService {
     String test3(Integer code);
 
     void test4();
+
+    List<Map<String, Object>> getStuInfo();
 }

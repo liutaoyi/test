@@ -2,6 +2,7 @@ package com.example.test.service;
 
 import com.example.test.entity.*;
 import com.example.test.mapper.MlxgMapper;
+import com.example.test.mapper.StudentMapper;
 import com.example.test.mapper.UziMapper;
 import com.example.test.mapper.XiaohuMapper;
 import com.example.test.utils.DateUniversalUtil;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.Map;
 
 /**
  * @author: LiuTaoYi
@@ -30,6 +31,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UziMapper uziMapper;
 
+    @Autowired
+    StudentMapper studentMapper;
 
     @Override
     public void test() {
@@ -110,5 +113,10 @@ public class UserServiceImpl implements UserService {
         Uzi uzi = new Uzi();
         uzi.setProcess("AB");
         uziMapper.insertSelective(uzi);
+    }
+
+    @Override
+    public List<Map<String, Object>> getStuInfo() {
+        return studentMapper.getStuInfo();
     }
 }

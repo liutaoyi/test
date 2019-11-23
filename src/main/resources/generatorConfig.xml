@@ -37,7 +37,13 @@
         <!--<table tableName="tb_user" domainObjectName="User" enableCountByExample="true"-->
                <!--enableUpdateByExample="true" enableDeleteByExample="true"-->
                <!--enableSelectByExample="true" selectByExampleQueryId="true" />-->
-        <table tableName="tb_uzi" domainObjectName="Uzi" enableCountByExample="true"
+        <table tableName="tb_student" domainObjectName="Student" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true"/>
+        <table tableName="tb_class" domainObjectName="Class" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true"/>
+        <table tableName="tb_teacher" domainObjectName="Teacher" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true"/>
     </context>
