@@ -1,6 +1,7 @@
 package com.example.test.controller;
 
 import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +16,11 @@ import java.io.IOException;
  * @description:
  **/
 @RestController
-@Api(value = "文件上传")
+@Api(tags = "文件上传")
 @RequestMapping(value = "/upload")
 public class FileUploadController {
 
+    @PostMapping(value = "upload")
     public String upload(@RequestParam("file") MultipartFile file) {
         try {
             if (file.isEmpty()) {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  **/
 @RestController
-@Api(value = "测试1")
+@Api(tags = "测试1")
 @RequestMapping(value = "/cao")
 public class Test1Controller {
 
