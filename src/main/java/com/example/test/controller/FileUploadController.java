@@ -31,7 +31,7 @@ public class FileUploadController {
             // 获取文件的后缀名
 //            String suffixName = fileName.substring(fileName.lastIndexOf("."));
             // 设置文件存储路径
-            String filePath = "C:/Users/Administrator/Desktop/upload";
+            String filePath = "C:/Users/Administrator/Desktop/upload/";
             String path = filePath + fileName;
             File dest = new File(path);
             // 检测是否存在目录
