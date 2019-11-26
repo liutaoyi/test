@@ -37,6 +37,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     TbLocationMapper locationMapper;
 
+    @Autowired
+    StuInfoMapper infoMapper;
+
     @Override
     public void test() {
         Date a = new Date();
@@ -146,9 +149,15 @@ public class UserServiceImpl implements UserService {
 //        example.createCriteria();
 //        List<Xiaohu> xiaohus = xiaohuMapper.selectByExample(example);
 //        xiaohus.forEach(System.out::println);
-        TbLocationExample example = new TbLocationExample();
+//        TbLocationExample example = new TbLocationExample();
+//        example.createCriteria();
+//        List<TbLocation> tbLocations = locationMapper.selectByExample(example);
+//        tbLocations.forEach(System.out::println);
+        StuInfoExample example = new StuInfoExample();
         example.createCriteria();
-        List<TbLocation> tbLocations = locationMapper.selectByExample(example);
-        tbLocations.forEach(System.out::println);
+        example.setCurrentPage((1 - 1) * 1);
+        example.setPageSize(1);
+        List<StuInfo> stuInfos = infoMapper.selectByExample(example);
+        stuInfos.forEach(System.out::println);
     }
 }

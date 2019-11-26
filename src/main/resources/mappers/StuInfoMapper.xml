@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.test.mapper.StuInfoMapper">
+    <resultMap id="BaseResultMap" type="com.example.test.entity.StuInfo">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="stu_num" property="stuNum" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="class_num" property="classNum" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="CHAR"/>
+        <result column="birth" property="birth" jdbcType="DATE"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="teacher_name" property="teacherName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, stu_num, name, class_num, sex, birth, class_name, teacher_name
+  </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.test.entity.StuInfoExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from stu_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="currentPage != null and pageSize != null">
+            limit ${currentPage},${pageSize}
+        </if>
+    </select>
+    <delete id="deleteByExample" parameterType="com.example.test.entity.StuInfoExample">
+        delete from stu_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.example.test.entity.StuInfo">
+    insert into stu_info (id, stu_num, name, 
+      class_num, sex, birth, class_name, 
+      teacher_name)
+    values (#{id,jdbcType=BIGINT}, #{stuNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{classNum,jdbcType=INTEGER}, #{sex,jdbcType=CHAR}, #{birth,jdbcType=DATE}, #{className,jdbcType=VARCHAR}, 
+      #{teacherName,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.example.test.entity.StuInfo">
+        insert into stu_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="stuNum != null">
+                stu_num,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="classNum != null">
+                class_num,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="birth != null">
+                birth,
+            </if>
+            <if test="className != null">
+                class_name,
+            </if>
+            <if test="teacherName != null">
+                teacher_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="stuNum != null">
+                #{stuNum,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="classNum != null">
+                #{classNum,jdbcType=INTEGER},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=CHAR},
+            </if>
+            <if test="birth != null">
+                #{birth,jdbcType=DATE},
+            </if>
+            <if test="className != null">
+                #{className,jdbcType=VARCHAR},
+            </if>
+            <if test="teacherName != null">
+                #{teacherName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.example.test.entity.StuInfoExample" resultType="java.lang.Integer">
+        select count(*) from stu_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update stu_info
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.stuNum != null">
+                stu_num = #{record.stuNum,jdbcType=VARCHAR},
+            </if>
+            <if test="record.name != null">
+                name = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.classNum != null">
+                class_num = #{record.classNum,jdbcType=INTEGER},
+            </if>
+            <if test="record.sex != null">
+                sex = #{record.sex,jdbcType=CHAR},
+            </if>
+            <if test="record.birth != null">
+                birth = #{record.birth,jdbcType=DATE},
+            </if>
+            <if test="record.className != null">
+                class_name = #{record.className,jdbcType=VARCHAR},
+            </if>
+            <if test="record.teacherName != null">
+                teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update stu_info
+        set id = #{record.id,jdbcType=BIGINT},
+        stu_num = #{record.stuNum,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
+        class_num = #{record.classNum,jdbcType=INTEGER},
+        sex = #{record.sex,jdbcType=CHAR},
+        birth = #{record.birth,jdbcType=DATE},
+        class_name = #{record.className,jdbcType=VARCHAR},
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+</mapper>
