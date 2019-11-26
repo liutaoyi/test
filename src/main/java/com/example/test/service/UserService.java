@@ -15,5 +15,9 @@ public interface UserService {
 
     void test4();
 
+    void test5();
+
+    void test6();
+
     List<Map<String, Object>> getStuInfo();
 }

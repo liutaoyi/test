@@ -1,18 +1,18 @@
 package com.example.test.service;
 
 import com.example.test.entity.*;
-import com.example.test.mapper.MlxgMapper;
-import com.example.test.mapper.StudentMapper;
-import com.example.test.mapper.UziMapper;
-import com.example.test.mapper.XiaohuMapper;
+import com.example.test.mapper.*;
 import com.example.test.utils.DateUniversalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @author: LiuTaoYi
@@ -33,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     StudentMapper studentMapper;
+
+    @Autowired
+    TbLocationMapper locationMapper;
 
     @Override
     public void test() {
@@ -101,9 +104,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String test3(Integer code) {
-        if (code == 1){
+        if (code == 1) {
             return code.toString();
-        }else{
+        } else {
             return null;
         }
     }
@@ -118,5 +121,34 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Map<String, Object>> getStuInfo() {
         return studentMapper.getStuInfo();
+    }
+
+    @Override
+    public void test5() {
+        Instant start = Instant.now();
+
+        for (int i = 0; i < 10000; i++) {
+            Xiaohu xiaohu = new Xiaohu();
+            xiaohu.setFlag(new Random().nextBoolean());
+            xiaohu.setFinishTime(new Date());
+            xiaohuMapper.insertSelective(xiaohu);
+        }
+
+        Instant end = Instant.now();
+        long timeElapsed = Duration.between(start, end).toMillis(); // 单位为毫秒
+
+        System.out.println(timeElapsed);
+    }
+
+    @Override
+    public void test6() {
+//        XiaohuExample example = new XiaohuExample();
+//        example.createCriteria();
+//        List<Xiaohu> xiaohus = xiaohuMapper.selectByExample(example);
+//        xiaohus.forEach(System.out::println);
+        TbLocationExample example = new TbLocationExample();
+        example.createCriteria();
+        List<TbLocation> tbLocations = locationMapper.selectByExample(example);
+        tbLocations.forEach(System.out::println);
     }
 }
