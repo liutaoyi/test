@@ -2,11 +2,11 @@ package com.example.test.mapper;
 
 import com.example.test.entity.Uzi;
 import com.example.test.entity.UziExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Mapper
 @Component

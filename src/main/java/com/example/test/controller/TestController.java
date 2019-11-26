@@ -3,7 +3,6 @@ package com.example.test.controller;
 import com.example.test.service.UserService;
 import com.example.test.utils.Result;
 import com.example.test.utils.ResultUtil;
-import com.sun.imageio.plugins.common.I18N;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,6 @@ public class TestController {
 
     @Autowired
     UserService userService;
-
 
     @GetMapping(value = "test")
     public Result test(@RequestParam Integer code) {
