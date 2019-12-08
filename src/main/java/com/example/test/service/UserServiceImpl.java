@@ -160,4 +160,13 @@ public class UserServiceImpl implements UserService {
         List<StuInfo> stuInfos = infoMapper.selectByExample(example);
         stuInfos.forEach(System.out::println);
     }
+
+    @Override
+    public void test7() {
+        StudentExample example = new StudentExample();
+        example.createCriteria().andIdEqualTo(1L);
+        Student student = new Student();
+        student.setName("孔子");
+        studentMapper.updateByExampleSelective(student, example);
+    }
 }

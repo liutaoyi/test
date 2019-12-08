@@ -20,4 +20,6 @@ public interface UserService {
     void test6();
 
     List<Map<String, Object>> getStuInfo();
+
+    void test7();
 }
