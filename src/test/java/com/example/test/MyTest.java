@@ -17,6 +17,6 @@ public class MyTest extends TestApplicationTests {
 
     @Test
     public void test() {
-        userService.test7();
+        userService.test8();
     }
 }

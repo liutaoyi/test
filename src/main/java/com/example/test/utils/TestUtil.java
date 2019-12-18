@@ -1,6 +1,8 @@
 package com.example.test.utils;
 
-import java.util.Random;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * @author: LiuTaoYi
@@ -10,11 +12,7 @@ import java.util.Random;
 
 public class TestUtil {
     public static void main(String[] args) {
-        for (int i = 0; i < 20; i++) {
-            System.out.println(new Random().nextBoolean());
-        }
-        for (int i = 0; i < 50; i++) {
-            System.out.println(Math.random());
-        }
+        LocalDateTime of = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+        System.out.println(of);
     }
 }

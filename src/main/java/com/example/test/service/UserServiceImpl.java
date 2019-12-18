@@ -2,17 +2,16 @@ package com.example.test.service;
 
 import com.example.test.entity.*;
 import com.example.test.mapper.*;
+import com.example.test.utils.ComUtil;
 import com.example.test.utils.DateUniversalUtil;
+import io.jsonwebtoken.lang.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author: LiuTaoYi
@@ -168,5 +167,86 @@ public class UserServiceImpl implements UserService {
         Student student = new Student();
         student.setName("孔子");
         studentMapper.updateByExampleSelective(student, example);
+    }
+
+    @Override
+    public void test8() {
+        Student student = new Student();
+        student.setId((long) 1);
+        student.setName("蔡徐坤");
+        studentMapper.updateByPrimaryKeySelective(student);
+    }
+
+    @Override
+    public String test9(String time) {
+        if (time == null) {
+            return "hello";
+        }
+        if (time.equals("")) {
+            return "fuck";
+        }
+        return "world";
+    }
+
+    @Override
+    public List test10(String time) {
+        if (time == null) {
+            return Arrays.asList("请联系管理员");
+        } else {
+            return Arrays.asList("success");
+        }
+
+    }
+
+    @Override
+    public void test11(Integer[] ids, Integer lineCode) {
+        for (Integer id : ids) {
+            System.out.println(id);
+            System.out.println(lineCode);
+        }
+    }
+
+    @Override
+    public List test12(Integer id) {
+        if (id == 1) {
+            List<String> strings = Arrays.asList("213", "3231");
+            return strings;
+        }
+        return new ArrayList();
+    }
+
+    @Override
+    public List test13() {
+        StudentExample example = new StudentExample();
+        example.createCriteria().andSexEqualTo("a");
+        List<Student> students = studentMapper.selectByExample(example);
+        Assert.notEmpty(students, "无数据");
+        return Arrays.asList(1, 2, 3);
+    }
+
+    @Override
+    public List test14(String startTime, String endTime) {
+
+        System.out.println("开始 " + startTime);
+        System.out.println("结束 " + endTime);
+
+
+        if ("".equals(startTime) && "".equals(endTime)) {
+            System.out.println("=======");
+            return Arrays.asList("a", "a", "a");
+        } else {
+            System.out.println("*******");
+            return Arrays.asList("b", "b", "b");
+        }
+    }
+
+    @Override
+    public Object test15(Xiaohu xiaohu) {
+        Xiaohu xiaohu1 = xiaohuMapper.selectByPrimaryKey(3L);
+        if (xiaohu.getFinishTime().equals(xiaohu1.getFinishTime())) {
+            return ComUtil.dateToString(xiaohu1.getFinishTime(), "yyyy-MM-dd HH:mm:ss");
+        } else {
+            return "-1";
+        }
     }
 }
