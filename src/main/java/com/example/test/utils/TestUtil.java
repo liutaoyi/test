@@ -1,8 +1,7 @@
 package com.example.test.utils;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.text.DecimalFormat;
+import java.text.Format;
 
 /**
  * @author: LiuTaoYi
@@ -12,7 +11,9 @@ import java.time.LocalTime;
 
 public class TestUtil {
     public static void main(String[] args) {
-        LocalDateTime of = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
-        System.out.println(of);
+        String str = "099";
+        Format format = new DecimalFormat("000");
+        String format1 = format.format(Integer.parseInt(str) + 1);
+        System.out.println(format1);
     }
 }

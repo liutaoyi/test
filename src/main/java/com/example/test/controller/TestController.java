@@ -26,8 +26,7 @@ public class TestController {
 
     @PostMapping(value = "test")
     public Result test(@RequestBody Xiaohu xiaohu) {
-        return ResultUtil.success(userService.test15(xiaohu));
+        userService.test16(xiaohu);
+        return ResultUtil.success();
     }
-
-
 }

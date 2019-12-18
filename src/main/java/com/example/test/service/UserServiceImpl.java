@@ -249,4 +249,10 @@ public class UserServiceImpl implements UserService {
             return "-1";
         }
     }
+
+    @Override
+    public void test16(Xiaohu xiaohu) {
+        xiaohuMapper.insertSelective(xiaohu);
+
+    }
 }

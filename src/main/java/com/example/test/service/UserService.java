@@ -40,4 +40,6 @@ public interface UserService {
     List test14(String startTime, String endTime);
 
     Object test15(Xiaohu xiaohu);
+
+    void test16(Xiaohu xiaohu);
 }
