@@ -26,7 +26,7 @@ public class TestController {
 
     @PostMapping(value = "test")
     public Result test(@RequestBody Xiaohu xiaohu) {
-        userService.test16(xiaohu);
+//        userService.test16(xiaohu);
         return ResultUtil.success();
     }
 }

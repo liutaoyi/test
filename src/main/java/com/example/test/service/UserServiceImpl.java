@@ -250,9 +250,9 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public void test16(Xiaohu xiaohu) {
-        xiaohuMapper.insertSelective(xiaohu);
-
-    }
+//    @Override
+//    public void test16(Xiaohu xiaohu) {
+//        xiaohuMapper.insertSelective(xiaohu);
+//
+//    }
 }
